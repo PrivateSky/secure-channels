@@ -1,0 +1,24 @@
+{
+  "name": "secure-channels",
+  "version": "1.0.0",
+  "description": "secure channels demo application",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node ./node_modules/octopus/scripts/install.js",
+    "build": "node ./bin/build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/privatesky/secure-channels.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/privatesky/secure-channels/issues"
+  },
+  "homepage": "https://github.com/privatesky/secure-channels#readme",
+  "dependencies": {
+    "octopus": "git+http://github.com/privatesky/updater.git"
+  }
+}
