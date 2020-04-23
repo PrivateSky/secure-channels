@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/privatesky/secure-channels#readme",
   "dependencies": {
-    "octopus": "git+http://github.com/privatesky/updater.git"
+    "octopus": "git+http://github.com/privatesky/updater.git#1.0"
   }
 }
