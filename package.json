@@ -4,7 +4,7 @@
   "description": "secure channels demo application",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node ./node_modules/octopus/scripts/install.js",
+    "postinstall": "node ./node_modules/octopus/scripts/run",
     "build": "node ./bin/build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
