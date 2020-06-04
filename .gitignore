@@ -1,4 +1,6 @@
-node_modules
-code/cardinal
-code/cardinal.js
+/code/cardinal
+/code/cardinal.js
+/temp
+/node_modules
+/.idea
 seed

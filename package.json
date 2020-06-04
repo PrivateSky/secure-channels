@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "node ./node_modules/octopus/scripts/run",
+    "prebuild": "node ./node_modules/octopus/scripts/run prebuild",
     "build": "node ./bin/build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,9 +16,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/privatesky/secure-channels/issues"
+    "url": "https://github.com/privatesky/secure-channels-ssapp-prototype/issues"
   },
-  "homepage": "https://github.com/privatesky/secure-channels#readme",
+  "homepage": "https://github.com/privatesky/secure-channels-ssapp-proto#readme",
   "dependencies": {
     "octopus": "git+http://github.com/privatesky/updater.git#1.0"
   }
