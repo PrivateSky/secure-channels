@@ -1,5 +1,7 @@
 const DOSSIER_SEED_FILE_PATH = "./seed";
 const CARDINAL_SEED_FILE_PATH = "../cardinal/seed";
+const APP_CONFIG  = require("../code/config.json");
+const THEMES_PATH="../themes";
 const BRICK_STORAGE_ENDPOINT = process.env.SSAPPS_FAVORITE_EDFS_ENDPOINT || "http://127.0.0.1:8080";
 
 require("./../../privatesky/psknode/bundles/csbBoot.js");
@@ -12,6 +14,16 @@ const edfs = EDFS.attachToEndpoint(BRICK_STORAGE_ENDPOINT);
 
 function getCardinalDossierSeed(callback){
     fs.readFile(CARDINAL_SEED_FILE_PATH, (err, content)=>{
+        if (err || content.length === 0) {
+            return callback(err);
+        }
+        callback(undefined, content);
+    })
+}
+
+function getThemeDossierSeed(callback){
+
+    fs.readFile(`${THEMES_PATH}/${APP_CONFIG.theme}/seed`, (err, content)=>{
         if (err || content.length === 0) {
             return callback(err);
         }
@@ -58,6 +70,20 @@ function updateDossier(bar, callback) {
                     loadedDossier.mount("/cardinal", cardinalSeed, (err) => {
                         if (err) {
                             return callback(err);
+                        }
+                        if (APP_CONFIG.theme) {
+                            return getThemeDossierSeed((err, themeSeed) => {
+                                if (err) {
+                                    return callback(err);
+                                }
+
+                                loadedDossier.mount(`/themes/${APP_CONFIG.theme}`, themeSeed, (err) => {
+                                    if (err) {
+                                        return callback(err);
+                                    }
+                                    storeSeed(DOSSIER_SEED_FILE_PATH, loadedDossier.getSeed(), callback);
+                                });
+                            })
                         }
                         storeSeed(DOSSIER_SEED_FILE_PATH, loadedDossier.getSeed(), callback);
                     })
