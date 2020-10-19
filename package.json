@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/privatesky/secure-channels-ssapp-proto#readme",
   "dependencies": {
-    "octopus": "git+http://github.com/privatesky/updater.git#1.0"
+    "octopus": "git+http://github.com/privatesky/octopus.git#1.0"
   }
 }
